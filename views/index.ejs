@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <!-- Bootstrap CSS -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+
+    <title>Billing System</title>
+
+    <style>
+      body {
+        background-color: #f8f9fa;
+      }
+
+      .form-section {
+        background: #ffffff;
+        padding: 20px;
+        border-radius: 15px;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+      }
+
+      .item-list-box {
+        max-height: 400px;
+        overflow-y: auto;
+      }
+
+      .item-entry {
+        border-bottom: 1px solid #dee2e6;
+        padding: 10px 0;
+      }
+
+      .btn-add {
+        margin-top: 32px;
+      }
+    </style>
+  </head>
+  <body>
+    <%- include('partials/header.ejs'); %>
+
+    <div class="container mt-5">
+      <form id="billingForm" class="row g-4" action="/submit" method="post">
+        <!-- Left Column -->
+        <div class="col-md-7">
+          <div class="form-section">
+            <h4 class="mb-4">Customer Details</h4>
+
+            <div class="mb-3">
+              <label class="form-label">Name</label>
+              <input type="text" class="form-control" name="Name" required />
+            </div>
+
+            <div class="mb-3">
+              <label class="form-label">Email</label>
+              <input type="email" class="form-control" name="Email" required />
+            </div>
+
+            <div class="mb-3">
+              <label class="form-label">Phone Number</label>
+              <input type="text" class="form-control" name="PhnNo" required />
+            </div>
+
+            <h5 class="mt-4 mb-3">Add Items</h5>
+
+            <div class="row g-3 align-items-end">
+              <div class="col-md-6">
+                <label class="form-label">Item Description</label>
+                <input type="text" class="form-control" id="itemDesc" />
+              </div>
+              <div class="col-md-4">
+                <label class="form-label">Amount</label>
+                <input type="number" class="form-control" id="itemAmount" />
+              </div>
+              <div class="col-md-2 text-end">
+                <button
+                  type="button"
+                  class="btn btn-primary btn-add"
+                  onclick="addItem()"
+                >
+                  Add
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Right Column -->
+        <div class="col-md-5">
+          <div class="form-section item-list-box">
+            <h5 class="mb-3">Item List</h5>
+            <div id="itemList" class="mb-3"></div>
+
+            <div class="text-end">
+              <button type="submit" class="btn btn-success w-100">
+                Save and Print
+              </button>
+            </div>
+          </div>
+        </div>
+      </form>
+    </div>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+
+    <!-- JS to handle item list -->
+    <script>
+      const itemList = document.getElementById("itemList");
+      const billingForm = document.getElementById("billingForm");
+
+      function addItem() {
+        const desc = document.getElementById("itemDesc").value.trim();
+        const amount = document.getElementById("itemAmount").value.trim();
+
+        if (!desc || !amount) {
+          alert("Please fill both Item Description and Amount.");
+          return;
+        }
+
+        // Create HTML element for display
+        const itemDiv = document.createElement("div");
+        itemDiv.className = "item-entry d-flex justify-content-between";
+        itemDiv.innerHTML = `<span>${desc}</span><strong>₹${amount}</strong>`;
+        itemList.appendChild(itemDiv);
+
+        // Create hidden inputs to include in form
+        const inputDesc = document.createElement("input");
+        inputDesc.type = "hidden";
+        inputDesc.name = "items[]";
+        inputDesc.value = JSON.stringify({ description: desc, amount: amount });
+
+        billingForm.appendChild(inputDesc);
+
+        // Clear inputs
+        document.getElementById("itemDesc").value = "";
+        document.getElementById("itemAmount").value = "";
+      }
+    </script>
+  </body>
+</html>
