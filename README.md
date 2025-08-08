@@ -1,6 +1,11 @@
 # QuickBill Pro - Bill Generator
 
-QuickBill Pro is a modern billing system built with Node.js, Express.js, MongoDB, and EJS. It features a beautiful UI, easy item entry, and instant invoice printing.
+QuickBill Pro is a modern billing system built with Node.js, Express.js, MongoDB, and EJS.  
+It features a beautiful UI, easy item entry, and instant invoice printing.  
+
+🌐 **Live Site:** [quickbill-pro.onrender.com](https://quickbill-pro.onrender.com)
+
+---
 
 ## Features
 - Responsive and modern UI
@@ -9,6 +14,8 @@ QuickBill Pro is a modern billing system built with Node.js, Express.js, MongoDB
 - Data stored in MongoDB
 - Invoice preview with total calculation
 
+---
+
 ## Technologies Used
 - Node.js
 - Express.js
@@ -16,20 +23,24 @@ QuickBill Pro is a modern billing system built with Node.js, Express.js, MongoDB
 - EJS (Embedded JavaScript Templates)
 - Bootstrap 5 & Bootstrap Icons
 
+---
+
 ## Getting Started
 1. Clone the repository:
-	```
+	```bash
 	git clone https://github.com/Shreyasj1508/QUICKBILL-PRO-BILL-GENERATOR.git
 	```
 2. Install dependencies:
-	```
+	```bash
 	npm install
 	```
 3. Start the server:
-	```
+	```bash
 	npm start
 	```
 4. Open your browser and go to `http://localhost:3000`
+
+---
 
 ## Usage
 - Fill in customer details and add items.
