@@ -12,9 +12,21 @@ router.get('/',(req,res)=>{
 
 router.get('/print',(req,res)=> { 
    
-   let billing = req.query;
-   console.log(billing);
-   res.render("print",{billing:req.query});
+     // Extract variables from query
+     const { Name, Email, PhnNo, items } = req.query;
+     // items may be a single string or array
+     let itemsArr = [];
+     if (Array.isArray(items)) {
+         itemsArr = items;
+     } else if (typeof items === 'string') {
+         itemsArr = [items];
+     }
+     res.render("print", {
+         Name,
+         Email,
+         PhnNo,
+         items: itemsArr
+     });
 })
 
 router.post('/submit', (req,res)=>{

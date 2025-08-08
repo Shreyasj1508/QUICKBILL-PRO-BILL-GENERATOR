@@ -27,6 +27,7 @@ body {
   }
 =======
 body {
+<<<<<<< HEAD
     background-color: #d3d3d3;
     font-family: 'Segoe UI', sans-serif;
   }
@@ -53,4 +54,33 @@ body {
     opacity: 1;
   }
 >>>>>>> 288711c (Initial commit)
+=======
+  background: linear-gradient(135deg, #e0eafc 0%, #cfdef3 100%);
+  font-family: 'Segoe UI', Arial, sans-serif;
+}
+
+.bg-white {
+  background-color: #fff !important;
+}
+
+.table thead th {
+  background: linear-gradient(90deg, #4e54c8 0%, #8f94fb 100%);
+  color: white;
+}
+
+.btn-dark {
+  background: linear-gradient(90deg, #4e54c8 0%, #8f94fb 100%);
+  border: none;
+  color: #fff;
+}
+
+.btn-dark:hover {
+  background: linear-gradient(90deg, #8f94fb 0%, #4e54c8 100%);
+  color: #fff;
+}
+
+input[type="number"]::-webkit-inner-spin-button {
+  opacity: 1;
+}
+>>>>>>> 8c364af (make ui more good)
   
