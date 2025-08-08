@@ -3,7 +3,7 @@
 QuickBill Pro is a modern billing system built with Node.js, Express.js, MongoDB, and EJS.  
 It features a beautiful UI, easy item entry, and instant invoice printing.  
 
-🌐 **Live Site:** [quickbill-pro.onrender.com](https://quickbill-pro.onrender.com)
+🌐 **Live Site:** https://quickbill-pro-bill-generator.onrender.com/
 
 ---
 
